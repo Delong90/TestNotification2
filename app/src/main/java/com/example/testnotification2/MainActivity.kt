@@ -1,18 +1,20 @@
 package com.example.testnotification2
 
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.bumptech.glide.Glide
 import com.example.testnotification2.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -77,7 +79,11 @@ class MainActivity : AppCompatActivity() {
 
             val bitMap = BitmapFactory.decodeResource(applicationContext.resources,R.mipmap.ic_photo)
 //            val bitMap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.icon_small_1)
-            val bitMapLargeIcon = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.icon_small_1)
+            val bitMapLargeIcon = BitmapFactory.decodeResource(applicationContext.resources,R.mipmap.ic_launcher)
+            val bitMapLargeIcon2 = Bitmap.createBitmap(100, 100,
+                Bitmap.Config.ARGB_8888)
+            val bitMapLargeIcon3 = BitmapFactory.decodeResource(applicationContext.resources,R.mipmap.ic_launcher)
+
 
 
 
@@ -87,8 +93,8 @@ class MainActivity : AppCompatActivity() {
             .setContentTitle("Example Title")
             .setContentText("Example Description")
             .setLargeIcon(bitMapLargeIcon)
-            .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitMap))
-//            .setStyle(NotificationCompat.BigTextStyle().bigText("Example DescriptionExample DescriptionExample DescriptionExample DescriptionExample DescriptionExample DescriptionExample Description"))
+//            .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitMap))
+            .setStyle(NotificationCompat.BigTextStyle().bigText("Example DescriptionExample DescriptionExample DescriptionExample DescriptionExample DescriptionExample DescriptionExample Description"))
             .setContentIntent(pendingIntent)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
 
