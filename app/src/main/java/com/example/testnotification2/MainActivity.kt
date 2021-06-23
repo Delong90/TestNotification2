@@ -75,8 +75,9 @@ class MainActivity : AppCompatActivity() {
             }
             val pendingIntent = PendingIntent.getActivity(this , 0, intent ,0)
 
-            val bitMap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.icon_small_1)
-            val bitMapLargeIcon = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.icon_small_2)
+            val bitMap = BitmapFactory.decodeResource(applicationContext.resources,R.mipmap.ic_photo)
+//            val bitMap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.icon_small_1)
+            val bitMapLargeIcon = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.icon_small_1)
 
 
 
@@ -86,8 +87,8 @@ class MainActivity : AppCompatActivity() {
             .setContentTitle("Example Title")
             .setContentText("Example Description")
             .setLargeIcon(bitMapLargeIcon)
-//            .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitMap))
-            .setStyle(NotificationCompat.BigTextStyle().bigText("Example DescriptionExample DescriptionExample DescriptionExample DescriptionExample DescriptionExample DescriptionExample Description"))
+            .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitMap))
+//            .setStyle(NotificationCompat.BigTextStyle().bigText("Example DescriptionExample DescriptionExample DescriptionExample DescriptionExample DescriptionExample DescriptionExample Description"))
             .setContentIntent(pendingIntent)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
 
