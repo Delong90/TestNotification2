@@ -6,6 +6,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -69,10 +70,25 @@ class MainActivity : AppCompatActivity() {
     }
 
         private fun sendNotification() {
+            val intent = Intent(this,MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            val pendingIntent = PendingIntent.getActivity(this , 0, intent ,0)
+
+            val bitMap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.icon_small_1)
+            val bitMapLargeIcon = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.icon_small_2)
+
+
+
+
         val builder = NotificationCompat.Builder(this,CHANNEL_ID)
             .setSmallIcon(R.drawable.icon_small_1)
             .setContentTitle("Example Title")
             .setContentText("Example Description")
+            .setLargeIcon(bitMapLargeIcon)
+//            .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitMap))
+            .setStyle(NotificationCompat.BigTextStyle().bigText("Example DescriptionExample DescriptionExample DescriptionExample DescriptionExample DescriptionExample DescriptionExample Description"))
+            .setContentIntent(pendingIntent)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
 
             with(NotificationManagerCompat.from(this)){
